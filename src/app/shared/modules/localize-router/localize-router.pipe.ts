@@ -49,7 +49,7 @@ export class LocalizeRouterPipe implements PipeTransform, OnDestroy {
     const isIvy = (this.ref as any)._lView;
     if (isIvy) { return this.value; }
 
-    if ((this.ref as any && (this.ref as any)._View)._View.state && VIEW_DESTROYED_STATE) { return this.value; }
+    if (this.ref && (this.ref as any)._View && (this.ref as any)._View.state && VIEW_DESTROYED_STATE) { return this.value; }
     this.ref.detectChanges();
     return this.value;
   }
