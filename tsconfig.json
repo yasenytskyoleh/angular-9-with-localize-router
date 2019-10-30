@@ -24,7 +24,7 @@
       ],
       "localize-router/*": [
         "dist/localize-router/*"
-      ]
+      ],
     }
   },
   "angularCompilerOptions": {

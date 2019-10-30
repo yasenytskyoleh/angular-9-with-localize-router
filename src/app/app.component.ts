@@ -9,6 +9,5 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'localize-test';
   constructor(private router: Router) {
-    console.log(this.router);
   }
 }

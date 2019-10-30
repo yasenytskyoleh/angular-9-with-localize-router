@@ -7,7 +7,11 @@
     "build": "ng run localize-test:build:production",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run localize-test:server:production --bundleDependencies all"
   },
   "private": true,
   "dependencies": {
@@ -18,9 +22,13 @@
     "@angular/forms": "9.0.0-next.14",
     "@angular/platform-browser": "9.0.0-next.14",
     "@angular/platform-browser-dynamic": "9.0.0-next.14",
+    "@angular/platform-server": "9.0.0-next.14",
     "@angular/router": "9.0.0-next.14",
+    "@nguniversal/express-engine": "^8.1.1",
+    "@nguniversal/module-map-ngfactory-loader": "8.1.1",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "express": "^4.15.2",
     "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -31,9 +39,9 @@
     "@angular/cli": "9.0.0-next.14",
     "@angular/compiler-cli": "9.0.0-next.14",
     "@angular/language-service": "9.0.0-next.14",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.12.0",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -44,8 +52,11 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "ng-packagr": "^9.0.0-rc.0",
     "protractor": "~5.4.0",
+    "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
+    "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.6.4"
+    "typescript": "~3.6.4",
+    "webpack-cli": "^3.1.0"
   }
 }

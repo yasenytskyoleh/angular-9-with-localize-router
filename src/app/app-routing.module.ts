@@ -2,12 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
-import {
-  LocalizeRouterModule,
-  LocalizeParser,
-  ManualParserLoader,
-  LocalizeRouterSettings,
-} from 'projects/ngx-translate-router/src/public_api';
+import { LocalizeRouterModule, LocalizeParser, ManualParserLoader, LocalizeRouterSettings } from './shared/modules/localize-router';
 
 const routes: Routes = [
   {
@@ -40,7 +35,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { initialNavigation: true }),
     LocalizeRouterModule.forRoot(routes,
       {
         parser: {
@@ -53,6 +48,8 @@ const routes: Routes = [
       }
     ),
   ],
-  exports: [RouterModule, LocalizeRouterModule]
+  exports: [RouterModule,
+    LocalizeRouterModule
+  ]
 })
 export class AppRoutingModule { }

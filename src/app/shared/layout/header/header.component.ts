@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LocalizeRouterService } from 'projects/ngx-translate-router/src/public_api';
+import { LocalizeRouterService } from '../../modules/localize-router';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +11,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private localizeService: LocalizeRouterService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private router: Router
     ) { }
 
   ngOnInit() {
