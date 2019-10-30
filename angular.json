@@ -44,10 +44,10 @@
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "aot": true,
               "extractLicenses": true,
-              "vendorChunk": false,
+              "vendorChunk": true,
               "buildOptimizer": true,
               "budgets": [
                 {
@@ -121,6 +121,46 @@
             "production": {
               "devServerTarget": "localize-test:serve:production"
             }
+          }
+        }
+      }
+    },
+    "localize-router": {
+      "projectType": "library",
+      "root": "projects/localize-router",
+      "sourceRoot": "projects/localize-router/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/localize-router/tsconfig.lib.json",
+            "project": "projects/localize-router/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/localize-router/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/localize-router/src/test.ts",
+            "tsConfig": "projects/localize-router/tsconfig.spec.json",
+            "karmaConfig": "projects/localize-router/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/localize-router/tsconfig.lib.json",
+              "projects/localize-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

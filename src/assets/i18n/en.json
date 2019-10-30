@@ -1,0 +1,9 @@
+{
+  "message": "test message",
+  "ROUTES": {
+    "test": "test_route",
+    "testwithout": "test_route_without",
+    "path": "auth",
+    "outlet": "modal"
+  }
+}

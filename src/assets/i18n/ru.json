@@ -1,0 +1,7 @@
+{
+  "message": "тестовое сообщение",
+  "ROUTES": {
+    "test": "test",
+    "testwithout": "testwithout"
+  }
+}

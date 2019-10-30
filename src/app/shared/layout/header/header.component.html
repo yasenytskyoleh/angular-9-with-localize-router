@@ -1,0 +1,17 @@
+<ul>
+    <li><a [routerLink]="['/'] | localize" >home</a></li>
+    <li><a [routerLink]="['/', 'test'] | localize" [queryParams]="{ 'param': 'value'}">test</a></li>
+    <li><a [routerLink]="['/', 'test', 'testwithout' ] | localize">test with few segments</a></li>
+    <li><a [routerLink]="['/', 'test', '1'] | localize">test with param</a></li>
+    <li><a [routerLink]="['/', 'test', '2', 'param'] | localize">test with few params</a></li>
+    <li><a [routerLink]="['/', { outlets: { modal: ['auth', 'first']}}]">testMOdal</a></li>
+    <li><a [routerLink]="['/', 'someroute'] | localize">uncorrect route</a></li>
+</ul>
+
+<ul>
+    <li (click)="changeLang('en')">EN</li>
+    <li (click)="changeLang('ru')">RU</li>
+    <li (click)="changeLang('ua')">UA</li>
+</ul>
+
+{{ 'message' | translate}}
