@@ -8,6 +8,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TransferState, StateKey, makeStateKey } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
+import { ServiceWorkerModuleMock } from './shared/modules/service-worker-mock/service-worker.mock';
 
 const fs = require('fs');
 
@@ -47,7 +48,8 @@ export function translateFactory(transferState: TransferState): TranslatesServer
         deps: [TransferState],
       },
     }),
-    ServerTransferStateModule
+    ServerTransferStateModule,
+    ServiceWorkerModuleMock
   ],
   bootstrap: [AppComponent],
 })
