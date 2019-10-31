@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClockService } from 'src/app/shared/services/clock/clock.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  public currentTime$: Observable<any>;
+  constructor(private clockService: ClockService) { }
 
   ngOnInit() {
+    this.currentTime$ = this.clockService.getCurrentTime();
   }
 
 }

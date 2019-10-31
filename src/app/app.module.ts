@@ -5,9 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './shared/layout/layout.module';
 
-import { HomeModule } from './home/home.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-
+import { TransferHttpModule } from '@gorniv/ngx-universal';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     AppRoutingModule,
     LayoutModule,
     HttpClientModule,
-    HomeModule,
-
+    TransferHttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
