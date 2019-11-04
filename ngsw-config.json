@@ -30,7 +30,7 @@
   "dataGroups": [
     {
       "name": "api-freshness",
-      "urls": ["/assets/i18n/**", "/api/**"],
+      "urls": ["/api/**"],
       "cacheConfig": {
         "maxSize": 30,
         "maxAge": "1d",

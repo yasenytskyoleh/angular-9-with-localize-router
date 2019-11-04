@@ -9,4 +9,4 @@ import { SwPushServerMock } from './swPush-server.mock.service';
     ]
 })
 
-export class ServiceWorkerModuleMock { }
+export class ServiceWorkerMockModule { }
