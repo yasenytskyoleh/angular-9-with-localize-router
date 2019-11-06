@@ -13,12 +13,14 @@ export class AppComponent implements OnInit {
   constructor(
     private swUpdate: SwUpdate,
     @Inject(DOCUMENT) private document: Document
-    ) {}
+  ) { }
   ngOnInit() {
-    this.swUpdate.available.subscribe(event => {
-      console.log('A newer version is now available. Refresh the page now to update the cache');
-      this.document.location.reload();
-    });
-    this.swUpdate.checkForUpdate();
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(event => {
+        console.log('A newer version is now available. Refresh the page now to update the cache');
+        this.document.location.reload();
+      });
+      this.swUpdate.checkForUpdate();
+    }
   }
 }
